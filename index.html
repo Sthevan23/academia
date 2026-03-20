@@ -2,203 +2,301 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
+  <script>
+    (function () {
+      var p = location.pathname;
+      if (/\.html?$/i.test(p)) {
+        p = p.slice(0, p.lastIndexOf("/") + 1);
+      } else if (p !== "/" && !p.endsWith("/")) {
+        p += "/";
+      }
+      var b = document.createElement("base");
+      b.href = p || "/";
+      document.head.insertBefore(b, document.head.firstChild);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bild fitness — equipamentos de academia para treinar em casa. Halteres, anilhas, kettlebells e acessórios com excelente custo-benefício e durabilidade." />
-  <title>Bild fitness | Academia em Casa — Força &amp; equipamentos</title>
+  <meta name="description" content="Bild Fitness — halteres, anilhas, kettlebells e equipamentos para treino em casa. Melhor preço no Pix, até 3x sem juros e atendimento no WhatsApp." />
+  <title>Bild Fitness | Equipamentos que moldam resultado</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Ir ao conteúdo</a>
   <header class="header">
     <div class="container header__inner">
-      <a href="#" class="logo">Bild <span>fitness</span></a>
+      <a href="https://www.bildfitness.com.br/" class="logo" target="_blank" rel="noopener noreferrer">Bild <span>Fitness</span></a>
       <button type="button" class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <nav class="nav" aria-label="Principal">
-        <a href="#produtos">Produtos</a>
-        <a href="#beneficios">Treino em casa</a>
-        <a href="#oferta">Oferta</a>
-        <a href="https://www.mercadolivre.com.br/pagina/vendas_pep?item_id=MLB5009733090&amp;category_id=MLB67501&amp;seller_id=1319374861&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=eshop" target="_blank" rel="noopener noreferrer">Mercado Livre</a>
-        <a href="#contato" class="nav__cta">Monte sua academia</a>
+        <a href="#categorias">Linhas</a>
+        <a href="#produtos">Equipamentos</a>
+        <a href="#depoimentos">Clientes</a>
+        <a href="https://www.bildfitness.com.br/" target="_blank" rel="noopener noreferrer">Loja online</a>
+        <a href="#contato" class="nav__cta">Comprar agora</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container hero__grid">
-      <div class="hero__content">
-        <p class="badge badge--pulse">Lote limitado — envio rápido</p>
-        <h1>Sua força não depende da mensalidade da academia</h1>
-        <p class="hero__lead">
-          Halteres, anilhas, kettlebells e acessórios de alta resistência para você treinar em casa ou montar sua própria academia — com o melhor custo-benefício do mercado.
-        </p>
-        <div class="hero__actions">
-          <a href="https://www.mercadolivre.com.br/pagina/vendas_pep?item_id=MLB5009733090&amp;category_id=MLB67501&amp;seller_id=1319374861&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=eshop" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Comprar no Mercado Livre</a>
-          <a href="#produtos" class="btn btn--ghost">Ver equipamentos</a>
-          <a href="#contato" class="btn btn--ghost">Falar com a gente</a>
-        </div>
-        <ul class="hero__trust">
-          <li>Materiais pensados para uso intensivo</li>
-          <li>Ideal para iniciantes e atletas</li>
-          <li>Economia real no longo prazo</li>
-        </ul>
-      </div>
-      <div class="hero__visual" aria-hidden="true">
-        <div class="hero__card">
-          <span class="hero__card-label">Oferta do mês</span>
-          <strong class="hero__card-price">Até 30% menos</strong>
-          <span class="hero__card-note">que renovar 12 meses de academia*</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="urgency-bar" aria-live="polite">
-    <div class="container urgency-bar__inner">
-      <p><strong>Últimas unidades</strong> do kit completo nesta semana — quem compra agora garante preço fixo e prioridade no estoque.</p>
-      <span class="countdown" id="countdown" role="timer" aria-label="Tempo restante da promoção"></span>
-    </div>
-  </section>
-
-  <section id="produtos" class="section products">
-    <div class="container">
-      <header class="section__head">
-        <h2>Equipamentos que aguentam o seu treino — e o tempo</h2>
-        <p>Qualidade de academia profissional, pensados para quem quer resultado sem depender de horário ou fila de aparelho.</p>
-      </header>
-
-      <div class="product-grid">
-        <article class="product-card">
-          <span class="product-card__tag">Mais vendido</span>
-          <h3>Halteres ajustáveis e fixos</h3>
-          <p class="product-card__desc">
-            Construção sólida, pegada segura e acabamento resistente à oxidação. Dos movimentos básicos aos avançados: você evolui a carga sem trocar de equipamento toda hora.
+  <main id="main">
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="badge badge--pulse">Loja oficial · envio para todo o Brasil</p>
+          <h1>Menos barulho de template. Mais treino que paga a conta.</h1>
+          <p class="hero__lead">
+            Uma vitrine limpa, focada no que importa: peso real, acabamento que aguenta série pesada e preço justo — à vista no Pix ou parcelado.
           </p>
-          <ul class="product-card__bullets">
-            <li>Base estável — menos risco, mais foco na execução</li>
-            <li>Ideal para peito, costas, ombros e braços em casa</li>
-          </ul>
-          <a href="https://www.mercadolivre.com.br/pagina/vendas_pep?item_id=MLB5009733090&amp;category_id=MLB67501&amp;seller_id=1319374861&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=eshop" class="product-card__cta" target="_blank" rel="noopener noreferrer">Compre agora</a>
-        </article>
+          <div class="hero__actions">
+            <a href="https://www.bildfitness.com.br/" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Entrar na loja Bild Fitness</a>
+            <a href="#produtos" class="btn btn--ghost">Ver linhas de produto</a>
+          </div>
+          <div class="hero__stats" aria-label="Destaques">
+            <div class="hero__stat">
+              <strong>Pix</strong>
+              <span>desconto à vista</span>
+            </div>
+            <div class="hero__stat">
+              <strong>3x</strong>
+              <span>sem juros</span>
+            </div>
+            <div class="hero__stat">
+              <strong>+200</strong>
+              <span>seguidores confiam</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__orbit"></div>
+          <div class="hero__card">
+            <span class="hero__card-label">Comparativo honesto</span>
+            <strong class="hero__card-price">1× equipamento</strong>
+            <span class="hero__card-note">versus anos de mensalidade parada na fila do leg press*</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <article class="product-card">
-          <span class="product-card__tag product-card__tag--alt">Resistência máxima</span>
-          <h3>Anilhas de ferro fundido</h3>
-          <p class="product-card__desc">
-            Peso real, furo padrão olympic e pintura ou revestimento que protege o piso e o equipamento. Perfeitas para barra, leg press caseiro ou progressão gradual de força.
+    <section class="trust-strip" aria-label="Benefícios da loja">
+      <div class="container trust-strip__inner">
+        <div class="trust-strip__item">
+          <span class="trust-strip__icon" aria-hidden="true">◆</span>
+          <div>
+            <strong>Melhor preço no Pix</strong>
+            <span>Economia pagando à vista</span>
+          </div>
+        </div>
+        <div class="trust-strip__item">
+          <span class="trust-strip__icon" aria-hidden="true">◇</span>
+          <div>
+            <strong>Até 3x sem juros</strong>
+            <span>Parcelamento facilitado</span>
+          </div>
+        </div>
+        <div class="trust-strip__item">
+          <span class="trust-strip__icon" aria-hidden="true">◎</span>
+          <div>
+            <strong>Receba em casa</strong>
+            <span>Consulte frete no checkout</span>
+          </div>
+        </div>
+        <div class="trust-strip__item">
+          <span class="trust-strip__icon" aria-hidden="true">✦</span>
+          <div>
+            <strong>Dúvida na hora?</strong>
+            <span>WhatsApp rápido</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="urgency-bar" aria-live="polite">
+      <div class="container urgency-bar__inner">
+        <p><strong>Ofertas do dia</strong> — valores e estoque mudam rápido. Quem decide hoje evita fila e garante o kit.</p>
+        <span class="countdown" id="countdown" role="timer" aria-label="Tempo restante do dia"></span>
+      </div>
+    </section>
+
+    <section id="categorias" class="section category-nav">
+      <div class="container">
+        <p class="category-nav__label">Navegue direto</p>
+        <div class="category-nav__pills" role="list">
+          <a href="#halteres" class="category-pill" role="listitem">Halteres</a>
+          <a href="#anilhas" class="category-pill" role="listitem">Anilhas</a>
+          <a href="#kettlebells" class="category-pill" role="listitem">Kettlebells</a>
+          <a href="#acessorios" class="category-pill" role="listitem">Acessórios</a>
+          <a href="https://www.bildfitness.com.br/" class="category-pill category-pill--accent" target="_blank" rel="noopener noreferrer" role="listitem">Ver catálogo completo</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="produtos" class="section products">
+      <div class="container">
+        <header class="section__head reveal">
+          <h2>Equipamento de verdade, explicado sem enrolação</h2>
+          <p>Da primeira anilha ao kit completo: escolha por objetivo, não por promessa vazia de anúncio.</p>
+        </header>
+
+        <div class="product-grid">
+          <article id="halteres" class="product-card reveal">
+            <span class="product-card__tag">Alta procura</span>
+            <h3>Halteres</h3>
+            <p class="product-card__desc">
+              Bola emborrachado, pintado, sextavado — pegada segura e peso calibrado para progressão sem susto. Do iniciante ao avançado.
+            </p>
+            <ul class="product-card__bullets">
+              <li>Menos oscilação, mais controle na execução</li>
+              <li>Peito, costas, ombros e braços no conforto de casa</li>
+            </ul>
+            <a href="https://www.bildfitness.com.br/" class="product-card__cta" target="_blank" rel="noopener noreferrer">Ver halteres na loja →</a>
+          </article>
+
+          <article id="anilhas" class="product-card reveal">
+            <span class="product-card__tag product-card__tag--alt">Olympic</span>
+            <h3>Anilhas</h3>
+            <p class="product-card__desc">
+              Sport, injetadas, emborrachadas — compatíveis com barra olímpica quando aplicável. Piso e equipamento protegidos.
+            </p>
+            <ul class="product-card__bullets">
+              <li>Progressão de carga previsível</li>
+              <li>Investimento que se mantém útil por anos</li>
+            </ul>
+            <a href="https://www.bildfitness.com.br/" class="product-card__cta" target="_blank" rel="noopener noreferrer">Ver anilhas na loja →</a>
+          </article>
+
+          <article id="kettlebells" class="product-card reveal">
+            <h3>Kettlebells</h3>
+            <p class="product-card__desc">
+              Cardio, core e potência no mesmo equipamento. Emborrachado aguenta impacto e uso diário sem deformar.
+            </p>
+            <ul class="product-card__bullets">
+              <li>Treino completo em poucos m²</li>
+              <li>Ótimo para emagrecimento com força</li>
+            </ul>
+            <a href="https://www.bildfitness.com.br/" class="product-card__cta" target="_blank" rel="noopener noreferrer">Ver kettlebells na loja →</a>
+          </article>
+
+          <article id="acessorios" class="product-card reveal">
+            <h3>Suportes e acessórios</h3>
+            <p class="product-card__desc">
+              Presilhas Lock Press, suportes para halteres, bases de agachamento — o que organiza o espaço e deixa o treino fluido.
+            </p>
+            <ul class="product-card__bullets">
+              <li>Menos bagunça, mais sessões por semana</li>
+              <li>Combine com seu kit principal</li>
+            </ul>
+            <a href="https://www.bildfitness.com.br/" class="product-card__cta" target="_blank" rel="noopener noreferrer">Ver acessórios na loja →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="section testimonials">
+      <div class="container">
+        <header class="section__head section__head--light reveal">
+          <h2>Quem comprou, voltou a treinar — e a comprar</h2>
+          <p>Depoimentos reais de quem queria resultado sem depender de horário de academia.</p>
+        </header>
+        <div class="testimonials__grid">
+          <blockquote class="testimonial reveal">
+            <p>“Entrega ágil e produto igual ao anúncio. Montei o canto do treino em uma tarde.”</p>
+            <footer>— Carolina S.</footer>
+          </blockquote>
+          <blockquote class="testimonial reveal">
+            <p>“Peso conferindo, acabamento firme. Já indiquei para dois amigos da equipe.”</p>
+            <footer>— João P.</footer>
+          </blockquote>
+          <blockquote class="testimonial reveal">
+            <p>“Variedade boa e atendimento que responde rápido no WhatsApp. Virou minha loja fixa.”</p>
+            <footer>— Amanda C.</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios" class="section benefits">
+      <div class="container">
+        <header class="section__head section__head--light reveal">
+          <h2>Por que o seu canto de treino vale o investimento</h2>
+          <p>Para quem leva musculação a sério — com a mesma disciplina dentro e fora da série.</p>
+        </header>
+        <div class="benefits__grid">
+          <div class="benefit reveal">
+            <span class="benefit__icon" aria-hidden="true">01</span>
+            <h3>Força no seu ritmo</h3>
+            <p>Sem fila, sem pressa. Progressão de carga e técnica limpa — o que constrói massa e performance com consistência.</p>
+          </div>
+          <div class="benefit reveal">
+            <span class="benefit__icon" aria-hidden="true">02</span>
+            <h3>Encaixa na rotina</h3>
+            <p>Antes do trabalho, no almoço ou à noite. Menos desculpa, mais treinos completos por semana.</p>
+          </div>
+          <div class="benefit reveal">
+            <span class="benefit__icon" aria-hidden="true">03</span>
+            <h3>Conta que fecha</h3>
+            <p>Equipamento seu substitui anos de mensalidade — e mantém valor se você mudar de objetivo.</p>
+          </div>
+          <div class="benefit reveal">
+            <span class="benefit__icon" aria-hidden="true">04</span>
+            <h3>Durabilidade que importa</h3>
+            <p>Menos troca, menos dor de cabeça. Mais foco no que pesa na barra.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="oferta" class="section offer">
+      <div class="container offer__inner">
+        <div class="offer__text reveal">
+          <h2>Pronto para montar sua academia em casa?</h2>
+          <p>
+            Na <strong>Bild Fitness</strong> você monta o kit com calma: categorias claras, preço no Pix, parcelamento e suporte quando precisar.
           </p>
-          <ul class="product-card__bullets">
-            <li>Precisão de calibragem para treinar com segurança</li>
-            <li>Durabilidade que compensa o investimento único</li>
+          <ul class="offer__list">
+            <li>Catálogo com pesos livres, equipamentos e acessórios</li>
+            <li>Promoções e lançamentos atualizados na loja</li>
+            <li>Cadastro com desconto na primeira compra (quando ativo)</li>
           </ul>
-          <a href="https://www.mercadolivre.com.br/pagina/vendas_pep?item_id=MLB5009733090&amp;category_id=MLB67501&amp;seller_id=1319374861&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=eshop" class="product-card__cta" target="_blank" rel="noopener noreferrer">Garantir minhas anilhas</a>
-        </article>
-
-        <article class="product-card">
-          <h3>Kettlebells</h3>
-          <p class="product-card__desc">
-            Um só equipamento para cardio, core e potência. Ferro fundido ou revestimento emborrachado: aguenta quedas e repetições sem perder a forma.
+          <p class="offer__scarcity">
+            <strong>Estoque gira rápido</strong> nos itens mais pedidos. Se o produto sumiu, vale conferir de novo em poucos dias.
           </p>
-          <ul class="product-card__bullets">
-            <li>Treinos rápidos e completos em poucos metros quadrados</li>
-            <li>Excelente para queima calórica e mobilidade</li>
-          </ul>
-          <a href="https://www.mercadolivre.com.br/pagina/vendas_pep?item_id=MLB5009733090&amp;category_id=MLB67501&amp;seller_id=1319374861&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=eshop" class="product-card__cta" target="_blank" rel="noopener noreferrer">Quero kettlebells</a>
-        </article>
-
-        <article class="product-card">
-          <h3>Acessórios fitness</h3>
-          <p class="product-card__desc">
-            Colchonetes, elásticos, roda abdominal, cordas e suportes — tudo para fechar seu canto de treino com conforto e variedade, sem gastar com o que não usa.
-          </p>
-          <ul class="product-card__bullets">
-            <li>Complementam musculação e alongamento</li>
-            <li>Ótimo custo-benefício para montar o kit ideal</li>
-          </ul>
-          <a href="https://www.mercadolivre.com.br/pagina/vendas_pep?item_id=MLB5009733090&amp;category_id=MLB67501&amp;seller_id=1319374861&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=eshop" class="product-card__cta" target="_blank" rel="noopener noreferrer">Montar meu kit</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="beneficios" class="section benefits">
-    <div class="container">
-      <header class="section__head section__head--light">
-        <h2>Por que treinar em casa vale cada centavo</h2>
-        <p>Para quem tem entre 18 e 50 anos e leva musculação e saúde a sério — sem abrir mão de praticidade.</p>
-      </header>
-      <div class="benefits__grid">
-        <div class="benefit">
-          <span class="benefit__icon" aria-hidden="true">01</span>
-          <h3>Força de verdade, no seu ritmo</h3>
-          <p>Sem fila, sem pressa. Você foca na progressão de carga e na técnica — o que acelera ganho de força e massa magra com consistência.</p>
+          <a href="https://www.bildfitness.com.br/" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">Ir para bildfitness.com.br</a>
         </div>
-        <div class="benefit">
-          <span class="benefit__icon" aria-hidden="true">02</span>
-          <h3>Praticidade no dia a dia</h3>
-          <p>Treino antes do trabalho, no almoço ou à noite. Menos desculpas, mais sessões completas por semana.</p>
-        </div>
-        <div class="benefit">
-          <span class="benefit__icon" aria-hidden="true">03</span>
-          <h3>Economia que aparece na conta</h3>
-          <p>Um investimento único em equipamentos duráveis substitui anos de mensalidade — e você ainda revende ou mantém o valor se mudar de objetivo.</p>
-        </div>
-        <div class="benefit">
-          <span class="benefit__icon" aria-hidden="true">04</span>
-          <h3>Durabilidade que inspira confiança</h3>
-          <p>Materiais e acabamentos pensados para uso repetido. Menos troca, menos dor de cabeça — mais treino.</p>
-        </div>
+        <aside class="offer__aside reveal reveal--delay" aria-label="Resumo">
+          <h3>O que você deixa para trás</h3>
+          <p class="offer__compare">Filas, horário fixo e mensalidade que não vira patrimônio.</p>
+          <p class="offer__compare offer__compare--accent">O que você ganha: <em>equipamento seu, treino no seu tempo.</em></p>
+          <p class="offer__footnote">*Comparativo ilustrativo. O resultado depende de treino e nutrição — o equipamento é a alavanca.</p>
+        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="oferta" class="section offer">
-    <div class="container offer__inner">
-      <div class="offer__text">
-        <h2>Monte sua academia em casa com excelente custo-benefício</h2>
-        <p>
-          Nosso diferencial é claro: equipamentos que entregam performance de academia comercial, preço justo e kits que fazem sentido para o seu espaço — seja um canto do apartamento ou uma garagem completa.
-        </p>
-        <ul class="offer__list">
-          <li>Consultoria rápida para não comprar peso a mais (ou a menos)</li>
-          <li>Combinações que maximizam cada real investido</li>
-          <li>Entrega organizada — você recebe e já começa a treinar</li>
-        </ul>
-        <p class="offer__scarcity">
-          <strong>Estoque limitado</strong> nos conjuntos mais procurados. Quem deixa para depois costuma pagar mais ou esperar a próxima remessa.
-        </p>
-        <a href="https://www.mercadolivre.com.br/pagina/vendas_pep?item_id=MLB5009733090&amp;category_id=MLB67501&amp;seller_id=1319374861&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=eshop" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">Compre agora e garanta o seu</a>
+    <section id="contato" class="section cta-final">
+      <div class="container cta-final__inner reveal">
+        <h2>Fale com a gente antes de fechar o carrinho</h2>
+        <p>Dúvida sobre peso, compatibilidade ou prazo? Chama no WhatsApp — resposta objetiva, sem robô genérico.</p>
+        <div class="cta-final__buttons">
+          <a href="https://www.bildfitness.com.br/" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">Abrir loja online</a>
+          <a href="https://wa.me/5537991833700" class="btn btn--ghost btn--large" target="_blank" rel="noopener noreferrer">WhatsApp (37) 99183-3700</a>
+          <a href="tel:+5537991833700" class="btn btn--ghost btn--large">Ligar</a>
+        </div>
+        <p class="cta-final__address">Rua Edmundo de Oliveira Santos, 65 — Alvorada</p>
       </div>
-      <aside class="offer__aside" aria-label="Resumo de valor">
-        <h3>Compare mentalmente</h3>
-        <p class="offer__compare">12 × mensalidade média de academia <span class="strike">vs.</span> equipamentos seus para sempre.</p>
-        <p class="offer__footnote">*Estimativa ilustrativa. O importante é: você para de alugar resultado e passa a <em>ter</em> o meio.</p>
-      </aside>
-    </div>
-  </section>
-
-  <section id="contato" class="section cta-final">
-    <div class="container cta-final__inner">
-      <h2>Pronto para levar seu treino para o próximo nível?</h2>
-      <p>Fale conosco agora: montamos o pacote ideal para o seu objetivo — hipertrofia, emagrecimento com musculação ou performance geral.</p>
-      <div class="cta-final__buttons">
-        <a href="https://www.mercadolivre.com.br/pagina/vendas_pep?item_id=MLB5009733090&amp;category_id=MLB67501&amp;seller_id=1319374861&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=eshop" class="btn btn--primary btn--large" target="_blank" rel="noopener noreferrer">Ir para a loja no Mercado Livre</a>
-        <a href="https://wa.me/5500000000000" class="btn btn--ghost btn--large" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
-        <a href="tel:+5500000000000" class="btn btn--ghost btn--large">Ligar agora</a>
-      </div>
-      <p class="cta-final__note">Substitua os números acima pelos seus dados reais de contato.</p>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <span class="logo logo--footer">Bild <span>fitness</span></span>
-      <p>Equipamentos para quem treina em casa ou monta academia própria — força, praticidade e economia inteligente.</p>
-      <p class="footer__store"><a href="https://www.mercadolivre.com.br/pagina/vendas_pep?item_id=MLB5009733090&amp;category_id=MLB67501&amp;seller_id=1319374861&amp;client=recoview-selleritems&amp;recos_listing=true#origin=upp&amp;component=sellerData&amp;typeSeller=eshop" target="_blank" rel="noopener noreferrer">Bild fitness — loja oficial no Mercado Livre</a></p>
-      <p class="footer__copy">© <span id="year"></span> Bild fitness. Todos os direitos reservados.</p>
+      <span class="logo logo--footer">Bild <span>Fitness</span></span>
+      <p>Loja online de equipamentos para treino — qualidade, preço justo e atendimento humano.</p>
+      <p class="footer__store">
+        <a href="https://www.bildfitness.com.br/" target="_blank" rel="noopener noreferrer">bildfitness.com.br — loja oficial</a>
+      </p>
+      <p class="footer__copy">© <span id="year"></span> Bild Fitness. Todos os direitos reservados.</p>
     </div>
   </footer>
 
